@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"><title>Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+{% block content %}
+<body>
+<nav class="navbar navbar-dark bg-primary justify">
+
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{% url 'cal' %}">Home</a>
+      <a class="nav-item nav-link active" href="#">Developed By Forhad  israfil</a>
+    </div>
+</nav><hr>
+
+<form name="calculator" class="container pb-calc-container" method="POST" action="{% url 'cal' %}">{% csrf_token %}
+    <div class="row">
+        <div class="col-md-3 offset-md-5">
+            <div class="card card-info">
+                <div class="card-header">
+                    <label>Simple Calculator</label>
+                </div>
+                <div class="card-block pb-calc-panel-body">
+                    <b><strong><input class="form-control" name="answer" placeholder="2 + 2 = 4" maxlength="24" 
+                    style="text-align:right"/></strong></b><label style="display: block; max_legnth: 24">{{ re }} {{ m }}</label>
+                    
+                    <hr class="pb-calc-hr">
+                        
+                    <div class="row" style="background: #b3ffff;">
+                        <div class="col-md-12">
+                            <div class="row" style="padding-bottom: 5px;">
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" type="reset">CE</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" type="reset">C</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" / " onclick="answer.value += '/'" /><span class="fas fa-divide"></span></button>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom: 5px;">
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" 7 " onclick="answer.value += '7'" />7</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" 8 " onclick="answer.value += '8'" />8</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" 9 " onclick="answer.value += '9'" />9</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" * " onclick="answer.value += '*'" /><span class="fas fa-times"></span></button>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom: 5px;">
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" 4 " onclick="answer.value += '4'" />4</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" 5 " onclick="answer.value += '5'" />5</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" 6 " onclick="answer.value += '6'" />6</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" - " onclick="answer.value += '-'" /><span class="fa fa-minus"></span></button>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom: 5px;">
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" 1 " onclick="answer.value += '1'" />1</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" 2 " onclick="answer.value += '2'" />2</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" 3 " onclick="answer.value += '3'" />3</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" + " onclick="answer.value += '+'" /><span class="fa fa-plus"></span></button>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom: 5px;">
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <span class="btn pb-calc-btn disabled, fa fa-calculator"></span>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" . " onclick="answer.value += '.'" /><strong>.</strong></button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" <input type="button" value=" 0 " onclick="answer.value += '0'" />0</button>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3">
+                                    <button class="btn pb-calc-btn" type="submit"><span class="fas fa-equals"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<style>
+    .pb-calc-container {
+        font-family: Lato;
+    }
+
+    .pb-calc-btn {
+        border: none;
+        background: none;
+        font-size: 20px;
+    }
+
+        .pb-calc-btn:hover {
+            background: #ff6666;
+            color: white;
+        }
+
+    .pb-calc-panel-body {
+        padding-bottom: 0;
+        text-align: center;
+    }
+</style>
+
+</body>
+{% endblock %}
+</html>
+
+
+
